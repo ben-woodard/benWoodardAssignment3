@@ -56,13 +56,11 @@ public class UserService {
 	public User validateUser(String inputEmail, String inputPassword) {
 		UserService userService = new UserService();
 		User[] objectsArray = userService.fileToUserArray("data.txt");
-		int i = 0;
-		while (i < objectsArray.length) {
-			if ((objectsArray[i].getUsername()).equalsIgnoreCase(inputEmail)
-					&& ((objectsArray[i].getPassword()).equalsIgnoreCase(inputPassword))) {
-				return objectsArray[i];
-			} else {
-				i++;
+
+		for (User user : objectsArray) {
+			if ((user.getUsername()).equalsIgnoreCase(inputEmail)
+					&& ((user.getPassword()).equalsIgnoreCase(inputPassword))) {
+				return user;
 			}
 		}
 		return null;
