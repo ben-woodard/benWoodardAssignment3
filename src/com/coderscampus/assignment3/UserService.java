@@ -59,7 +59,7 @@ public class UserService {
 
 		for (User user : objectsArray) {
 			if ((user.getUsername()).equalsIgnoreCase(inputEmail)
-					&& ((user.getPassword()).equalsIgnoreCase(inputPassword))) {
+					&& ((user.getPassword()).equals(inputPassword))) {
 				return user;
 			}
 		}

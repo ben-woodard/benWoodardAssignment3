@@ -23,9 +23,9 @@ public class UserLoginApplication {
 					System.out.println("Too many failed login attempts, you are now locked out.");
 					break;
 				} else {
-					loginCounter++;
 					System.out.println("Invalid login, please try again");
 				}
+				loginCounter++;
 			}
 			scanner.close();
 		}
