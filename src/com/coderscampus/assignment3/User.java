@@ -7,6 +7,12 @@ public class User {
 	private String password;
 	private String name;
 
+	public User(String[] userStringArray) {
+		this.setUsername(userStringArray[0]);
+		this.setPassword(userStringArray[1]);
+		this.setName(userStringArray[2]);
+	}
+
 	// Getters and Setters
 	public String getUsername() {
 		return username;

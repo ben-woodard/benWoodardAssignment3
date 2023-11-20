@@ -5,19 +5,20 @@ import java.util.Scanner;
 public class UserLoginApplication {
 
 	public static void main(String[] args) {
-		UserService collectInput = new UserService();
+		UserService userService = new UserService();
 		try (Scanner scanner = new Scanner(System.in)) {
 
 			int loginCounter = 0;
+			User loggedInUser = null;
 			while (loginCounter < 5) {
 				System.out.println("Enter your Email:");
 				String inputEmail = scanner.nextLine();
 				System.out.println("Enter your Password");
 				String inputPassword = scanner.nextLine();
 
-				collectInput.validateUser(inputEmail, inputPassword);
-				if (collectInput.validateUser(inputEmail, inputPassword) != null) {
-					System.out.println("Welcome " + collectInput.validateUser(inputEmail, inputPassword).getName());
+				loggedInUser = userService.validateUser(inputEmail, inputPassword);
+				if (loggedInUser != null) {
+					System.out.println("Welcome " + loggedInUser.getName());
 					break;
 				} else if (loginCounter == 4) {
 					System.out.println("Too many failed login attempts, you are now locked out.");
